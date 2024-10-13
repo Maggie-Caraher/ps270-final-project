@@ -11,5 +11,19 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to the impact of investments in public transport on environmental outcomes.
-I could look at data on pollution levels in cities with well funded/developed public transport infrastructure versus cities with less funded/developed public transport.
+I am interested in exploring data related to the influence that experiencing the effects of climate change has on legislators' support for climate change mitigation and prevention.
+I could look at data on rates of temperature change over time in different states and Congressional votes on relevant legislation.
+
+## Data and proposal
+
+```{r setup}
+library(readr)
+library(tibble)
+
+data <- read_csv(
+  "/Users/maggiecaraher/Documents/GitHub/data-2C-beyond-the-limit-usa/data/processed/climdiv_state_year.csv")
+print(head(data, 10))
+```
+
+Does an increase in temperature influence support for climate change intervention? In this study, I plan to examine the change in support for climate change intervention that comes with rising temperatures in different states over time. I hypothesize that more significant changes in temperature over time increases support for laws aimed at combating and mitigating the negative effects of climate change. In states that experience a greater rate of increase in annual temperature, I would expect that their state governments would be supporting climate change mitigation and prevention laws at the federal level. My sample is comprised of the annual temperature from 1895-2019 in the continental United States. My unit of analysis is state representatives. The explanatory variable of interest is the rate of increase in annual temperature of the states. My outcome variable is the state representatives’ support or lack of support of these laws at the federal level. The sample will use data from a Washington Post repository measuring temperature trends by state between 1895 and 2019. If I observe that there is higher support of federal climate change legislation from representatives in states that have experienced greater temperature increase, this would support my hypothesis. However, if I observe no discernible pattern or a lower support, this would disprove my hypothesis.
+
