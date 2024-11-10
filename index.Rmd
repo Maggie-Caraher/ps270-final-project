@@ -121,9 +121,7 @@ data_scatter <- ggplot(
        y = "Population Change (%)")
 ```
 
-```{r}
-data_scatter
-```
+![Scatter Plot](scatter.png)
 
 This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.
 
