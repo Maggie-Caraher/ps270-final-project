@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","state_pops.csv.numbers","state_pops.numbers","temp_plot.png"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","state_pops.csv.numbers","state_pops.numbers","temp_plot.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1548,85 +1548,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 I could look at data on rates of temperature change over time in different states and Congressional votes on relevant legislation.</p>
 <h2 id="data-and-proposal">Data and proposal</h2>
 <p>Does an increase in temperature influence support for climate change intervention? In this study, I plan to examine the change in support for climate change intervention that comes with rising temperatures in different states over time. I hypothesize that more significant changes in temperature over time increases support for laws aimed at combating and mitigating the negative effects of climate change. In states that experience a greater rate of increase in annual temperature, I would expect that their state governments would be supporting climate change mitigation and prevention laws at the federal level. My sample is comprised of the annual temperature from 1895-2019 in the continental United States. My unit of analysis is state representatives. The explanatory variable of interest is the rate of increase in annual temperature of the states. My outcome variable is the state representatives’ support or lack of support of these laws at the federal level. The sample will use data from a Washington Post repository measuring temperature trends by state between 1895 and 2019. If I observe that there is higher support of federal climate change legislation from representatives in states that have experienced greater temperature increase, this would support my hypothesis. However, if I observe no discernible pattern or a lower support, this would disprove my hypothesis.</p>
+<h2 id="updated-proposal-and-data">Updated proposal and data</h2>
+<p>I changed my research question to instead observe the relationship between temperature change and migration patterns. This is the updated proposal:</p>
+<p>Does an increase in temperature influence population migration trends? In this study, I plan to examine the effect that annual temperature change has on state populations over time. I hypothesize that more significant changes in temperature over time lead to a decrease in population. In states that experience a greater rate of increase in annual temperature, I would expect that their state population would remain stable or decline in comparison to states without temperature increase. My sample is comprised of the annual temperature from 1895-2019 in the continental United States, subset to the years between 2010 and 2019. The other data set is the census population data for each continental state of those same years. My unit of analysis is states. The explanatory variable of interest is the rate of increase in annual temperature of the states. My outcome variable is the population change over time. The sample will use data from a Washington Post repository measuring temperature trends by state between 1895 and 2019. The other set comes from the US Census website’s public data for 2010 and 2019. If I observe that there is higher migration out of those states that have experienced greater temperature increase, this would support my hypothesis. However, if I observe no discernible relationship or a positive relationship (both increase), this would disprove my hypothesis.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
-<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tibble.tidyverse.org/'>tibble</a></span><span class='op'>)</span></span>
-<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
-<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span></span>
-<span>  <span class='st'>"/Users/maggiecaraher/Documents/GitHub/data-2C-beyond-the-limit-usa/data/processed/climdiv_state_year.csv"</span><span class='op'>)</span></span>
-<span><span class='va'>temp_data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>&gt;=</span> <span class='fl'>2010</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>&lt;=</span> <span class='fl'>2019</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>fips</span>, <span class='va'>year</span>, <span class='va'>temp</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>temp_data_new</span> <span class='op'>&lt;-</span> <span class='va'>temp_data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>year</span>,</span>
-<span>              values_from <span class='op'>=</span> <span class='va'>temp</span>,</span>
-<span>              names_prefix <span class='op'>=</span> <span class='st'>"temp_"</span><span class='op'>)</span></span></code></pre>
-</div>
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fips_states</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span></span>
-<span>  fips <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"01"</span>, <span class='st'>"04"</span>, <span class='st'>"05"</span>, <span class='st'>"06"</span>, <span class='st'>"08"</span>, <span class='st'>"09"</span>, <span class='st'>"10"</span>, <span class='st'>"12"</span>, <span class='st'>"13"</span>, <span class='st'>"16"</span>, <span class='st'>"17"</span>, <span class='st'>"18"</span>, <span class='st'>"19"</span>, <span class='st'>"20"</span>, <span class='st'>"21"</span>, <span class='st'>"22"</span>, <span class='st'>"23"</span>, <span class='st'>"24"</span>, <span class='st'>"25"</span>, <span class='st'>"26"</span>, <span class='st'>"27"</span>, <span class='st'>"28"</span>, <span class='st'>"29"</span>, <span class='st'>"30"</span>, <span class='st'>"31"</span>, <span class='st'>"32"</span>, <span class='st'>"33"</span>, <span class='st'>"34"</span>, <span class='st'>"35"</span>, <span class='st'>"36"</span>, <span class='st'>"37"</span>, <span class='st'>"38"</span>, <span class='st'>"39"</span>, <span class='st'>"40"</span>, <span class='st'>"41"</span>, <span class='st'>"42"</span>, <span class='st'>"44"</span>, <span class='st'>"45"</span>, <span class='st'>"46"</span>, <span class='st'>"47"</span>, <span class='st'>"48"</span>, <span class='st'>"49"</span>, <span class='st'>"50"</span>, <span class='st'>"51"</span>, <span class='st'>"53"</span>, <span class='st'>"54"</span>, <span class='st'>"55"</span>, <span class='st'>"56"</span><span class='op'>)</span>,</span>
-<span>  states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
-<span>  <span class='st'>"AL"</span>, <span class='st'>"AZ"</span>, <span class='st'>"AR"</span>, <span class='st'>"CA"</span>, <span class='st'>"CO"</span>, <span class='st'>"CT"</span>, <span class='st'>"DE"</span>, <span class='st'>"FL"</span>, <span class='st'>"GA"</span>, <span class='st'>"ID"</span>, </span>
-<span>  <span class='st'>"IL"</span>, <span class='st'>"IN"</span>, <span class='st'>"IA"</span>, <span class='st'>"KS"</span>, <span class='st'>"KY"</span>, <span class='st'>"LA"</span>, <span class='st'>"ME"</span>, <span class='st'>"MD"</span>, <span class='st'>"MA"</span>, <span class='st'>"MI"</span>, </span>
-<span>  <span class='st'>"MN"</span>, <span class='st'>"MS"</span>, <span class='st'>"MO"</span>, <span class='st'>"MT"</span>, <span class='st'>"NE"</span>, <span class='st'>"NV"</span>, <span class='st'>"NH"</span>, <span class='st'>"NJ"</span>, <span class='st'>"NM"</span>, <span class='st'>"NY"</span>, </span>
-<span>  <span class='st'>"NC"</span>, <span class='st'>"ND"</span>, <span class='st'>"OH"</span>, <span class='st'>"OK"</span>, <span class='st'>"OR"</span>, <span class='st'>"PA"</span>, <span class='st'>"RI"</span>, <span class='st'>"SC"</span>, <span class='st'>"SD"</span>, </span>
-<span>  <span class='st'>"TN"</span>, <span class='st'>"TX"</span>, <span class='st'>"UT"</span>, <span class='st'>"VT"</span>, <span class='st'>"VA"</span>, <span class='st'>"WA"</span>, <span class='st'>"WV"</span>, <span class='st'>"WI"</span>, <span class='st'>"WY"</span></span>
-<span><span class='op'>)</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>new_data_tibble</span> <span class='op'>&lt;-</span> <span class='va'>fips_states</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>temp_data_new</span>, by <span class='op'>=</span> <span class='st'>"fips"</span><span class='op'>)</span></span></code></pre>
-</div>
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>temp_increase</span> <span class='op'>&lt;-</span> <span class='va'>new_data_tibble</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>temp_difference <span class='op'>=</span> <span class='va'>temp_2019</span> <span class='op'>-</span> <span class='va'>temp_2010</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>fips</span>, <span class='va'>temp_difference</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>fips_states</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"fips"</span> <span class='op'>=</span> <span class='st'>"fips"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>significant_states</span> <span class='op'>&lt;-</span> <span class='va'>temp_increase</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>temp_difference</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>sig_temp_plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
-<span>  <span class='va'>significant_states</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
-<span>    x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span></span>
-<span>      <span class='va'>states</span>, <span class='va'>temp_difference</span><span class='op'>)</span>,</span>
-<span>    y <span class='op'>=</span> <span class='va'>temp_difference</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill <span class='op'>=</span> <span class='st'>"dodgerblue3"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Significant State Temperature Differences from 2010-2019"</span>,</span>
-<span>       x <span class='op'>=</span> <span class='st'>"State"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Temperature Change in °F"</span><span class='op'>)</span></span>
-<span><span class='va'>sig_temp_plot</span></span></code></pre>
-</div>
 <p><img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"~/Library/Mobile Documents/com~apple~CloudDocs/state_pops.csv"</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>state_pops</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>states <span class='op'>=</span> <span class='va'>Geographic.Area.Name..Grouping.</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>estpop2010 <span class='op'>=</span> <span class='va'>X7.1.2010.population.estimate..Population</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>estpop2019 <span class='op'>=</span> <span class='va'>X7.1.2019.population.estimate..Population</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>states</span>, <span class='va'>estpop2010</span>, <span class='va'>estpop2019</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>cont_state_pops</span> <span class='op'>&lt;-</span> <span class='va'>state_pops</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>states</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Alaska"</span>, <span class='st'>"District of Columbia"</span>, <span class='st'>"Hawaii"</span>, <span class='st'>"Puerto Rico"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>state_abbreviations</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/setNames.html'>setNames</a></span><span class='op'>(</span><span class='va'>state.abb</span>, <span class='va'>state.name</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>cont_state_pops</span> <span class='op'>&lt;-</span> <span class='va'>cont_state_pops</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>states <span class='op'>=</span> <span class='va'>state_abbreviations</span><span class='op'>[</span><span class='va'>states</span><span class='op'>]</span><span class='op'>)</span></span>
-<span><span class='va'>cont_state_pops</span></span></code></pre>
-</div>
 <pre><code>   states estpop2010 estpop2019
 1      AL  4,785,437  4,903,185
 2      AZ  6,407,172  7,278,717
@@ -1678,17 +1612,6 @@ I could look at data on rates of temperature change over time in different state
 48     WY    564,487    578,759</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cont_state_pops</span> <span class='op'>&lt;-</span> <span class='va'>cont_state_pops</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
-<span>    estpop2010 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>","</span>, <span class='st'>""</span>, <span class='va'>estpop2010</span><span class='op'>)</span><span class='op'>)</span>,</span>
-<span>    estpop2019 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>","</span>, <span class='st'>""</span>, <span class='va'>estpop2019</span><span class='op'>)</span><span class='op'>)</span></span>
-<span>  <span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>cont_state_pops</span> <span class='op'>&lt;-</span> <span class='va'>cont_state_pops</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>pop_pct_change <span class='op'>=</span> <span class='op'>(</span><span class='op'>(</span><span class='va'>estpop2019</span> <span class='op'>-</span> <span class='va'>estpop2010</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>estpop2010</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>cont_state_pops</span></span></code></pre>
-</div>
 <pre><code>   states estpop2010 estpop2019 pop_pct_change
 1      AL    4785437    4903185      2.4605485
 2      AZ    6407172    7278717     13.6026472
@@ -1740,11 +1663,6 @@ I could look at data on rates of temperature change over time in different state
 48     WY     564487     578759      2.5283133</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>temp_pop_data</span> <span class='op'>&lt;-</span> <span class='va'>temp_increase</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>cont_state_pops</span>, by <span class='op'>=</span> <span class='st'>"states"</span><span class='op'>)</span></span>
-<span><span class='va'>temp_pop_data</span></span></code></pre>
-</div>
 <pre><code># A tibble: 48 × 6
    fips  temp_difference states estpop2010 estpop2019 pop_pct_change
    &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
@@ -1761,17 +1679,15 @@ I could look at data on rates of temperature change over time in different state
 # ℹ 38 more rows</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>temp_pop_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>temp_difference</span>, y <span class='op'>=</span> <span class='va'>pop_pct_change</span>, label <span class='op'>=</span> <span class='va'>states</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"pink3"</span>, size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span>, color <span class='op'>=</span> <span class='st'>"dodgerblue3"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Population Percentage Change and Temperature Difference, 2010-2019"</span>,</span>
-<span>       x <span class='op'>=</span> <span class='st'>"Temperature Difference (°F)"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Population Change (%)"</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data_scatter</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
+<p>This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
