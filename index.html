@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","state_pops.csv.numbers","state_pops.numbers","temp_plot.png"]}
+  {"type":"character","attributes":{},"value":["data_scatter.png","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","state_pops.csv.numbers","state_pops.numbers","temp_plot.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1558,125 +1558,16 @@ I could look at data on rates of temperature change over time in different state
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>   states estpop2010 estpop2019
-1      AL  4,785,437  4,903,185
-2      AZ  6,407,172  7,278,717
-3      AR  2,921,964  3,017,804
-4      CA 37,319,502 39,512,223
-5      CO  5,047,349  5,758,736
-6      CT  3,579,114  3,565,287
-7      DE    899,593    973,764
-8      FL 18,845,537 21,477,737
-9      GA  9,711,881 10,617,423
-10     ID  1,570,746  1,787,065
-11     IL 12,840,503 12,671,821
-12     IN  6,490,432  6,732,219
-13     IA  3,050,745  3,155,070
-14     KS  2,858,190  2,913,314
-15     KY  4,348,181  4,467,673
-16     LA  4,544,532  4,648,794
-17     ME  1,327,629  1,344,212
-18     MD  5,788,645  6,045,680
-19     MA  6,566,307  6,892,503
-20     MI  9,877,510  9,986,857
-21     MN  5,310,828  5,639,632
-22     MS  2,970,548  2,976,149
-23     MO  5,995,974  6,137,428
-24     MT    990,697  1,068,778
-25     NE  1,829,542  1,934,408
-26     NV  2,702,405  3,080,156
-27     NH  1,316,762  1,359,711
-28     NJ  8,799,446  8,882,190
-29     NM  2,064,552  2,096,829
-30     NY 19,399,878 19,453,561
-31     NC  9,574,323 10,488,084
-32     ND    674,715    762,062
-33     OH 11,539,336 11,689,100
-34     OK  3,759,944  3,956,971
-35     OR  3,837,491  4,217,737
-36     PA 12,711,160 12,801,989
-37     RI  1,053,959  1,059,361
-38     SC  4,635,649  5,148,714
-39     SD    816,166    884,659
-40     TN  6,355,311  6,829,174
-41     TX 25,241,971 28,995,881
-42     UT  2,775,332  3,205,958
-43     VT    625,879    623,989
-44     VA  8,023,699  8,535,519
-45     WA  6,742,830  7,614,893
-46     WV  1,854,239  1,792,147
-47     WI  5,690,475  5,822,434
-48     WY    564,487    578,759</code></pre>
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>   states estpop2010 estpop2019 pop_pct_change
-1      AL    4785437    4903185      2.4605485
-2      AZ    6407172    7278717     13.6026472
-3      AR    2921964    3017804      3.2799857
-4      CA   37319502   39512223      5.8755366
-5      CO    5047349    5758736     14.0942701
-6      CT    3579114    3565287     -0.3863247
-7      DE     899593     973764      8.2449508
-8      FL   18845537   21477737     13.9672327
-9      GA    9711881   10617423      9.3240640
-10     ID    1570746    1787065     13.7717365
-11     IL   12840503   12671821     -1.3136713
-12     IN    6490432    6732219      3.7252836
-13     IA    3050745    3155070      3.4196565
-14     KS    2858190    2913314      1.9286332
-15     KY    4348181    4467673      2.7480917
-16     LA    4544532    4648794      2.2942296
-17     ME    1327629    1344212      1.2490688
-18     MD    5788645    6045680      4.4403310
-19     MA    6566307    6892503      4.9677239
-20     MI    9877510    9986857      1.1070300
-21     MN    5310828    5639632      6.1912003
-22     MS    2970548    2976149      0.1885511
-23     MO    5995974    6137428      2.3591497
-24     MT     990697    1068778      7.8814209
-25     NE    1829542    1934408      5.7318170
-26     NV    2702405    3080156     13.9783267
-27     NH    1316762    1359711      3.2617132
-28     NJ    8799446    8882190      0.9403319
-29     NM    2064552    2096829      1.5633900
-30     NY   19399878   19453561      0.2767182
-31     NC    9574323   10488084      9.5438706
-32     ND     674715     762062     12.9457623
-33     OH   11539336   11689100      1.2978563
-34     OK    3759944    3956971      5.2401578
-35     OR    3837491    4217737      9.9087138
-36     PA   12711160   12801989      0.7145611
-37     RI    1053959    1059361      0.5125437
-38     SC    4635649    5148714     11.0678138
-39     SD     816166     884659      8.3920428
-40     TN    6355311    6829174      7.4561733
-41     TX   25241971   28995881     14.8716992
-42     UT    2775332    3205958     15.5161977
-43     VT     625879     623989     -0.3019753
-44     VA    8023699    8535519      6.3788534
-45     WA    6742830    7614893     12.9331898
-46     WV    1854239    1792147     -3.3486514
-47     WI    5690475    5822434      2.3189453
-48     WY     564487     578759      2.5283133</code></pre>
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 48 × 6
-   fips  temp_difference states estpop2010 estpop2019 pop_pct_change
-   &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
- 1 01             2.67   AL        4785437    4903185          2.46 
- 2 04            -0.108  AZ        6407172    7278717         13.6  
- 3 05             0.0500 AR        2921964    3017804          3.28 
- 4 06             0.650  CA       37319502   39512223          5.88 
- 5 08            -0.892  CO        5047349    5758736         14.1  
- 6 09            -1.52   CT        3579114    3565287         -0.386
- 7 10             0.842  DE         899593     973764          8.24 
- 8 12             3.99   FL       18845537   21477737         14.0  
- 9 13             3.27   GA        9711881   10617423          9.32 
-10 16            -0.358  ID        1570746    1787065         13.8  
-# ℹ 38 more rows</code></pre>
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1688,7 +1579,7 @@ I could look at data on rates of temperature change over time in different state
 <p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <p>This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
