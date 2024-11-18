@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data_scatter.png","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","scatter.png","state_pops.csv.numbers","state_pops.numbers"]}
+  {"type":"character","attributes":{},"value":["data_scatter_plot.png","data_scatter.png","fl_counties_2010.csv","fl_counties_2019.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","scatter.png","state_pops.csv.numbers","state_pops.numbers"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1573,10 +1573,427 @@ I could look at data on rates of temperature change over time in different state
 
 </div>
 <figure>
-<img src="scatter.png" alt="Scatter Plot" />
+<img src="data_scatter_plot.png" alt="Scatter Plot" />
 <figcaption aria-hidden="true">Scatter Plot</figcaption>
 </figure>
-<p>This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.</p>
+<p>This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship between population change and temperature difference would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>temp_pop_knit</span></span></code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-8">Table 1: </span>Temperature Difference and Population Change</caption>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 23%" />
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">fips</th>
+<th style="text-align: center;">temp_difference</th>
+<th style="text-align: center;">states</th>
+<th style="text-align: center;">estpop2010</th>
+<th style="text-align: center;">estpop2019</th>
+<th style="text-align: center;">pop_pct_change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">2.6666667</td>
+<td style="text-align: center;">AL</td>
+<td style="text-align: center;">4785437</td>
+<td style="text-align: center;">4903185</td>
+<td style="text-align: center;">2.4605485</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">04</td>
+<td style="text-align: center;">-0.1083333</td>
+<td style="text-align: center;">AZ</td>
+<td style="text-align: center;">6407172</td>
+<td style="text-align: center;">7278717</td>
+<td style="text-align: center;">13.6026472</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">05</td>
+<td style="text-align: center;">0.0500000</td>
+<td style="text-align: center;">AR</td>
+<td style="text-align: center;">2921964</td>
+<td style="text-align: center;">3017804</td>
+<td style="text-align: center;">3.2799857</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">06</td>
+<td style="text-align: center;">0.6500000</td>
+<td style="text-align: center;">CA</td>
+<td style="text-align: center;">37319502</td>
+<td style="text-align: center;">39512223</td>
+<td style="text-align: center;">5.8755366</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">08</td>
+<td style="text-align: center;">-0.8916667</td>
+<td style="text-align: center;">CO</td>
+<td style="text-align: center;">5047349</td>
+<td style="text-align: center;">5758736</td>
+<td style="text-align: center;">14.0942701</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">09</td>
+<td style="text-align: center;">-1.5250000</td>
+<td style="text-align: center;">CT</td>
+<td style="text-align: center;">3579114</td>
+<td style="text-align: center;">3565287</td>
+<td style="text-align: center;">-0.3863247</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.8416667</td>
+<td style="text-align: center;">DE</td>
+<td style="text-align: center;">899593</td>
+<td style="text-align: center;">973764</td>
+<td style="text-align: center;">8.2449508</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">3.9916667</td>
+<td style="text-align: center;">FL</td>
+<td style="text-align: center;">18845537</td>
+<td style="text-align: center;">21477737</td>
+<td style="text-align: center;">13.9672327</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">3.2666667</td>
+<td style="text-align: center;">GA</td>
+<td style="text-align: center;">9711881</td>
+<td style="text-align: center;">10617423</td>
+<td style="text-align: center;">9.3240640</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">-0.3583333</td>
+<td style="text-align: center;">ID</td>
+<td style="text-align: center;">1570746</td>
+<td style="text-align: center;">1787065</td>
+<td style="text-align: center;">13.7717365</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">-0.8000000</td>
+<td style="text-align: center;">IL</td>
+<td style="text-align: center;">12840503</td>
+<td style="text-align: center;">12671821</td>
+<td style="text-align: center;">-1.3136713</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">-0.2083333</td>
+<td style="text-align: center;">IN</td>
+<td style="text-align: center;">6490432</td>
+<td style="text-align: center;">6732219</td>
+<td style="text-align: center;">3.7252836</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">-1.3666667</td>
+<td style="text-align: center;">IA</td>
+<td style="text-align: center;">3050745</td>
+<td style="text-align: center;">3155070</td>
+<td style="text-align: center;">3.4196565</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">-1.4000000</td>
+<td style="text-align: center;">KS</td>
+<td style="text-align: center;">2858190</td>
+<td style="text-align: center;">2913314</td>
+<td style="text-align: center;">1.9286332</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">1.5166667</td>
+<td style="text-align: center;">KY</td>
+<td style="text-align: center;">4348181</td>
+<td style="text-align: center;">4467673</td>
+<td style="text-align: center;">2.7480917</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">1.3083333</td>
+<td style="text-align: center;">LA</td>
+<td style="text-align: center;">4544532</td>
+<td style="text-align: center;">4648794</td>
+<td style="text-align: center;">2.2942296</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">-3.9750000</td>
+<td style="text-align: center;">ME</td>
+<td style="text-align: center;">1327629</td>
+<td style="text-align: center;">1344212</td>
+<td style="text-align: center;">1.2490688</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">0.7333333</td>
+<td style="text-align: center;">MD</td>
+<td style="text-align: center;">5788645</td>
+<td style="text-align: center;">6045680</td>
+<td style="text-align: center;">4.4403310</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">-1.7333333</td>
+<td style="text-align: center;">MA</td>
+<td style="text-align: center;">6566307</td>
+<td style="text-align: center;">6892503</td>
+<td style="text-align: center;">4.9677239</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">-3.1500000</td>
+<td style="text-align: center;">MI</td>
+<td style="text-align: center;">9877510</td>
+<td style="text-align: center;">9986857</td>
+<td style="text-align: center;">1.1070300</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">-3.5750000</td>
+<td style="text-align: center;">MN</td>
+<td style="text-align: center;">5310828</td>
+<td style="text-align: center;">5639632</td>
+<td style="text-align: center;">6.1912003</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">1.6166667</td>
+<td style="text-align: center;">MS</td>
+<td style="text-align: center;">2970548</td>
+<td style="text-align: center;">2976149</td>
+<td style="text-align: center;">0.1885511</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">-0.2333333</td>
+<td style="text-align: center;">MO</td>
+<td style="text-align: center;">5995974</td>
+<td style="text-align: center;">6137428</td>
+<td style="text-align: center;">2.3591497</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">-1.6500000</td>
+<td style="text-align: center;">MT</td>
+<td style="text-align: center;">990697</td>
+<td style="text-align: center;">1068778</td>
+<td style="text-align: center;">7.8814209</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">-1.8666667</td>
+<td style="text-align: center;">NE</td>
+<td style="text-align: center;">1829542</td>
+<td style="text-align: center;">1934408</td>
+<td style="text-align: center;">5.7318170</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">-0.2416667</td>
+<td style="text-align: center;">NV</td>
+<td style="text-align: center;">2702405</td>
+<td style="text-align: center;">3080156</td>
+<td style="text-align: center;">13.9783267</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">-2.7416667</td>
+<td style="text-align: center;">NH</td>
+<td style="text-align: center;">1316762</td>
+<td style="text-align: center;">1359711</td>
+<td style="text-align: center;">3.2617132</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">-0.3833333</td>
+<td style="text-align: center;">NJ</td>
+<td style="text-align: center;">8799446</td>
+<td style="text-align: center;">8882190</td>
+<td style="text-align: center;">0.9403319</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">0.2583333</td>
+<td style="text-align: center;">NM</td>
+<td style="text-align: center;">2064552</td>
+<td style="text-align: center;">2096829</td>
+<td style="text-align: center;">1.5633900</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">-1.9916667</td>
+<td style="text-align: center;">NY</td>
+<td style="text-align: center;">19399878</td>
+<td style="text-align: center;">19453561</td>
+<td style="text-align: center;">0.2767182</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">37</td>
+<td style="text-align: center;">2.2000000</td>
+<td style="text-align: center;">NC</td>
+<td style="text-align: center;">9574323</td>
+<td style="text-align: center;">10488084</td>
+<td style="text-align: center;">9.5438706</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">-2.8333333</td>
+<td style="text-align: center;">ND</td>
+<td style="text-align: center;">674715</td>
+<td style="text-align: center;">762062</td>
+<td style="text-align: center;">12.9457623</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">0.6750000</td>
+<td style="text-align: center;">OH</td>
+<td style="text-align: center;">11539336</td>
+<td style="text-align: center;">11689100</td>
+<td style="text-align: center;">1.2978563</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">-0.5000000</td>
+<td style="text-align: center;">OK</td>
+<td style="text-align: center;">3759944</td>
+<td style="text-align: center;">3956971</td>
+<td style="text-align: center;">5.2401578</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">41</td>
+<td style="text-align: center;">0.0500000</td>
+<td style="text-align: center;">OR</td>
+<td style="text-align: center;">3837491</td>
+<td style="text-align: center;">4217737</td>
+<td style="text-align: center;">9.9087138</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">42</td>
+<td style="text-align: center;">-0.2000000</td>
+<td style="text-align: center;">PA</td>
+<td style="text-align: center;">12711160</td>
+<td style="text-align: center;">12801989</td>
+<td style="text-align: center;">0.7145611</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">-1.3833333</td>
+<td style="text-align: center;">RI</td>
+<td style="text-align: center;">1053959</td>
+<td style="text-align: center;">1059361</td>
+<td style="text-align: center;">0.5125437</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">2.4416667</td>
+<td style="text-align: center;">SC</td>
+<td style="text-align: center;">4635649</td>
+<td style="text-align: center;">5148714</td>
+<td style="text-align: center;">11.0678138</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">46</td>
+<td style="text-align: center;">-2.6416667</td>
+<td style="text-align: center;">SD</td>
+<td style="text-align: center;">816166</td>
+<td style="text-align: center;">884659</td>
+<td style="text-align: center;">8.3920428</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">1.9000000</td>
+<td style="text-align: center;">TN</td>
+<td style="text-align: center;">6355311</td>
+<td style="text-align: center;">6829174</td>
+<td style="text-align: center;">7.4561733</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">0.7583333</td>
+<td style="text-align: center;">TX</td>
+<td style="text-align: center;">25241971</td>
+<td style="text-align: center;">28995881</td>
+<td style="text-align: center;">14.8716992</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">49</td>
+<td style="text-align: center;">-0.4333333</td>
+<td style="text-align: center;">UT</td>
+<td style="text-align: center;">2775332</td>
+<td style="text-align: center;">3205958</td>
+<td style="text-align: center;">15.5161977</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">-3.0000000</td>
+<td style="text-align: center;">VT</td>
+<td style="text-align: center;">625879</td>
+<td style="text-align: center;">623989</td>
+<td style="text-align: center;">-0.3019753</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">51</td>
+<td style="text-align: center;">1.5083333</td>
+<td style="text-align: center;">VA</td>
+<td style="text-align: center;">8023699</td>
+<td style="text-align: center;">8535519</td>
+<td style="text-align: center;">6.3788534</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">53</td>
+<td style="text-align: center;">-0.5333333</td>
+<td style="text-align: center;">WA</td>
+<td style="text-align: center;">6742830</td>
+<td style="text-align: center;">7614893</td>
+<td style="text-align: center;">12.9331898</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">54</td>
+<td style="text-align: center;">2.1000000</td>
+<td style="text-align: center;">WV</td>
+<td style="text-align: center;">1854239</td>
+<td style="text-align: center;">1792147</td>
+<td style="text-align: center;">-3.3486514</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">-3.3916667</td>
+<td style="text-align: center;">WI</td>
+<td style="text-align: center;">5690475</td>
+<td style="text-align: center;">5822434</td>
+<td style="text-align: center;">2.3189453</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">56</td>
+<td style="text-align: center;">-1.5666667</td>
+<td style="text-align: center;">WY</td>
+<td style="text-align: center;">564487</td>
+<td style="text-align: center;">578759</td>
+<td style="text-align: center;">2.5283133</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This table shows the difference in annual temperature between 2010 and 2019 in each state, as well as each state’s estimated population in 2010, population in 2019, and percentage change between the two.</p>
+<p>My hypothesis proposed that states experiencing greater increases in annual temperature over time (from 2010 to 2019) would see a decline or have insignificant change in population, due to migration out of these states as a result of rising temperatures. I expected that states with more significant temperature increases would experience population loss, while states with little or no increase in temperature would either maintain or grow their population. This hypothesis was based on the assumption that rising annual temperatures would make living conditions less desirable, prompting people to migrate away from states that experienced the most temperature increases. However, the results of the analysis did not support this hypothesis. The correlation between the rate of temperature increase and population change was found to be negligible, with no statistically significant relationship observed (correlation coefficient was 0.21). This suggests that there is no clear evidence linking temperature increase to population migration trends within the time frame (2010-2019).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

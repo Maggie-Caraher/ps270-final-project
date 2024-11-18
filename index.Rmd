@@ -62,19 +62,23 @@ temp_increase <- new_data_tibble |>
   select(fips, temp_difference) |>
   left_join(fips_states, by = c("fips" = "fips"))
 
-significant_states <- temp_increase |>
+increasing_states <- temp_increase |>
   filter(temp_difference > 0)
 
+decreasing_states <- temp_increase |>
+  filter(temp_difference < 0)
+
 sig_temp_plot <- ggplot(
-  significant_states, mapping = aes(
+  increasing_states, mapping = aes(
     x = reorder(
       states, temp_difference),
     y = temp_difference)) +
   geom_bar(stat = "identity", fill = "dodgerblue3") +
-  labs(title = "Significant State Temperature Differences from 2010-2019",
+  labs(title = "State Temperature Increases from 2010-2019",
        x = "State",
        y = "Temperature Change in °F")
 ```
+
 ```{r, echo = FALSE}
 data <- read.csv("~/Library/Mobile Documents/com~apple~CloudDocs/state_pops.csv")
 
@@ -110,23 +114,41 @@ temp_pop_data <- temp_increase |>
 ```
 
 ```{r, echo = FALSE}
+correlation <- cor(temp_pop_data$temp_difference, temp_pop_data$pop_pct_change)
+
 data_scatter <- ggplot(
   temp_pop_data, aes(
     x = temp_difference,
-    y = pop_pct_change, label = states)) +
-  geom_point(color = "pink2", size = 3) +
-  geom_smooth(method = "lm", se = FALSE, color = "skyblue2") +
-  labs(title = "Population Percentage Change and Temperature Difference, 2010-2019",
+    y = pop_pct_change)) +
+  geom_point(aes(label = states), color = "hotpink", size = 3, alpha = 0.6) +
+  geom_text(aes(label = states), vjust = -0.5, color = "black", size = 3) +
+  geom_smooth(method = "lm", se = FALSE, color = "cornflowerblue") +
+  labs(
+    title = "Population Percentage Change and Temperature Difference, 2010-2019",
        x = "Temperature Difference (°F)",
-       y = "Population Change (%)")
+       y = "Population Change (%)") +
+  theme_minimal()
+
+ggsave("data_scatter_plot.png", plot = data_scatter, width = 8, height = 6, dpi = 300)
 ```
 
-![Scatter Plot](scatter.png)
+![Scatter Plot](data_scatter_plot.png)
 
-This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.
+This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship between population change and temperature difference would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.
 
+```{r, echo = FALSE}
+temp_pop_knit <- knitr::kable(temp_pop_data,
+             caption = "Temperature Difference and Population Change", 
+             align = "c")
+```
 
+```{r}
+temp_pop_knit
+```
 
+This table shows the difference in annual temperature between 2010 and 2019 in each state, as well as each state's estimated population in 2010, population in 2019, and percentage change between the two.
+
+My hypothesis proposed that states experiencing greater increases in annual temperature over time (from 2010 to 2019) would see a decline or have insignificant change in population, due to migration out of these states as a result of rising temperatures. I expected that states with more significant temperature increases would experience population loss, while states with little or no increase in temperature would either maintain or grow their population. This hypothesis was based on the assumption that rising annual temperatures would make living conditions less desirable, prompting people to migrate away from states that experienced the most temperature increases. However, the results of the analysis did not support this hypothesis. The correlation between the rate of temperature increase and population change was found to be negligible, with no statistically significant relationship observed (correlation coefficient was 0.21). This suggests that there is no clear evidence linking temperature increase to population migration trends within the time frame (2010-2019).
 
 
 
