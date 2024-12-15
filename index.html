@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -90,7 +90,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>PS270 Final Project</title>
 
-  <meta property="description" itemprop="description" content="My final project"/>
+  <meta property="description" itemprop="description" content="Temperature and Population Migration in the Continental US, 2010-2019"/>
 
 
   <meta name="article:author" content="Maggie Caraher"/>
@@ -98,19 +98,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="PS270 Final Project"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="My final project"/>
+  <meta property="og:description" content="Temperature and Population Migration in the Continental US, 2010-2019"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="PS270 Final Project"/>
-  <meta property="twitter:description" content="My final project"/>
+  <meta property="twitter:description" content="Temperature and Population Migration in the Continental US, 2010-2019"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","description","output"]}},"value":[{"type":"character","attributes":{},"value":["PS270 Final Project"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Maggie Caraher"]}]}]},{"type":"character","attributes":{},"value":["My final project"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","description","output"]}},"value":[{"type":"character","attributes":{},"value":["PS270 Final Project"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Maggie Caraher"]}]}]},{"type":"character","attributes":{},"value":["Temperature and Population Migration in the Continental US, 2010-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1518,7 +1518,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"PS270 Final Project","description":"My final project","authors":[{"author":"Maggie Caraher","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
+{"title":"PS270 Final Project","description":"Temperature and Population Migration in the Continental US, 2010-2019","authors":[{"author":"Maggie Caraher","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1532,7 +1532,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>My final project</p>
+<p>Temperature and Population Migration in the Continental US, 2010-2019</p>
 </div>
 
 <div class="d-byline">
@@ -1543,14 +1543,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>Project thoughts</p>
-<p>I am interested in exploring data related to the influence that experiencing the effects of climate change has on legislators’ support for climate change mitigation and prevention.
-I could look at data on rates of temperature change over time in different states and Congressional votes on relevant legislation.</p>
-<p>Data and proposal</p>
-<p>Does an increase in temperature influence support for climate change intervention? In this study, I plan to examine the change in support for climate change intervention that comes with rising temperatures in different states over time. I hypothesize that more significant changes in temperature over time increases support for laws aimed at combating and mitigating the negative effects of climate change. In states that experience a greater rate of increase in annual temperature, I would expect that their state governments would be supporting climate change mitigation and prevention laws at the federal level. My sample is comprised of the annual temperature from 1895-2019 in the continental United States. My unit of analysis is state representatives. The explanatory variable of interest is the rate of increase in annual temperature of the states. My outcome variable is the state representatives’ support or lack of support of these laws at the federal level. The sample will use data from a Washington Post repository measuring temperature trends by state between 1895 and 2019. If I observe that there is higher support of federal climate change legislation from representatives in states that have experienced greater temperature increase, this would support my hypothesis. However, if I observe no discernible pattern or a lower support, this would disprove my hypothesis.</p>
-<p>Updated proposal and data</p>
-<p>I changed my research question to instead observe the relationship between temperature change and migration patterns. This is the updated proposal:</p>
+<p>Introduction</p>
 <p>Does an increase in temperature influence population migration trends? In this study, I plan to examine the effect that annual temperature change has on state populations over time. I hypothesize that more significant changes in temperature over time lead to a decrease in population. In states that experience a greater rate of increase in annual temperature, I would expect that their state population would remain stable or decline in comparison to states without temperature increase. My sample is comprised of the annual temperature from 1895-2019 in the continental United States, subset to the years between 2010 and 2019. The other data set is the census population data for each continental state of those same years. My unit of analysis is states. The explanatory variable of interest is the rate of increase in annual temperature of the states. My outcome variable is the population change over time. The sample will use data from a Washington Post repository measuring temperature trends by state between 1895 and 2019. The other set comes from the US Census website’s public data for 2010 and 2019. If I observe that there is higher migration out of those states that have experienced greater temperature increase, this would support my hypothesis. However, if I observe no discernible relationship or a positive relationship (both increase), this would disprove my hypothesis.</p>
+<p>If my hypothesis is supported, showing that states experiencing greater temperature increases have stable or declining populations, the implications could be significant. Such findings would highlight the role of climate change in driving migration, urging policymakers to prioritize resources for communities losing population due to rising temperatures. This could include taking measures like physically reinforcing infrastructure or economic restructuring to support already affected areas. Additionally, this would reinforce the urgency with which we should be reducing emissions and investing in climate-resilient infrastructure to mitigate the social and economic impacts of climate-driven migration. On the other hand, if I find no significant relationship, or if temperature increases correlate with population growth, this would suggest that migration decisions are more complex and influenced by factors beyond temperature, such as economic opportunities or quality of life. It could also indicate that populations in these states are more resilient than anticipated or that current state-level mitigation efforts are addressing climate impacts more effectively than speculated. Regardless of the outcome, this research topic should continue to be studied for the potential insights into how states might better address the effects of climate change.</p>
+<p>Data</p>
+<p>The temperature data comes from a dataset within a public Washington Post repository. The repository is called “data-2C-beyond-the-limit-usa,” and the dataset was a csv file called “climdiv_state_year.csv” under the processed data folder. The data was committed four years ago by contributor John Muyskens. <a href="https://github.com/washingtonpost/data-2C-beyond-the-limit-usa" class="uri">https://github.com/washingtonpost/data-2C-beyond-the-limit-usa</a>.</p>
+<p>The state data comes from the U.S. Census Bureau website, and the specific citation is provided below:</p>
+<p>U.S. Census Bureau. “Annual Estimates of the Resident Population: April 1, 2010 to
+July 1, 2019.” Population Estimates, PEP Population Estimates, Table PEPANNRES, 2019, <a href="https://data.census.gov/table/PEPPOP2019.PEPANNRES?g=010XX00US$0400000&amp;y=2019" class="uri">https://data.census.gov/table/PEPPOP2019.PEPANNRES?g=010XX00US$0400000&amp;y=2019</a>.</p>
+<p>To analyze the relationship between temperature changes and population trends, I began by cleaning and restructuring the datasets. Using temperature data from 1895-2019, I filtered for annual state-level temperatures from 2010 to 2019. The dataset was reshaped so that temperature values for each year became individual columns, allowing me to calculate the temperature difference between 2010 and 2019 for each state. A census dataset containing state-level populations was similarly processed: I filtered out non-continental states and transformed population estimates for 2010 and 2019 into numeric values. I computed the percentage change in population over the same period for each state. Finally, I merged these datasets, aligning the temperature change and population change metrics by state to create a comprehensive analysis-ready dataset.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -1572,20 +1573,9 @@ I could look at data on rates of temperature change over time in different state
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<figure>
-<img src="data_scatter_plot.png" alt="Scatter Plot" />
-<figcaption aria-hidden="true">Scatter Plot</figcaption>
-</figure>
-<p>This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019, and the population change (in percentage) from 2010 to 2019. The observable relationship is slightly positive, disproving my thesis that the relationship between population change and temperature difference would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.</p>
 <div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>temp_pop_knit</span></span></code></pre>
-</div>
 <table>
-<caption><span id="tab:unnamed-chunk-8">Table 1: </span>Temperature Difference and Population Change</caption>
+<caption><span id="tab:unnamed-chunk-7">Table 1: </span>Temperature Difference and Population Change</caption>
 <colgroup>
 <col style="width: 8%" />
 <col style="width: 23%" />
@@ -1993,8 +1983,82 @@ I could look at data on rates of temperature change over time in different state
 </table>
 </div>
 <p>This table shows the difference in annual temperature between 2010 and 2019 in each state, as well as each state’s estimated population in 2010, population in 2019, and percentage change between the two.</p>
-<p>My hypothesis proposed that states experiencing greater increases in annual temperature over time (from 2010 to 2019) would see a decline or have insignificant change in population, due to migration out of these states as a result of rising temperatures. I expected that states with more significant temperature increases would experience population loss, while states with little or no increase in temperature would either maintain or grow their population. This hypothesis was based on the assumption that rising annual temperatures would make living conditions less desirable, prompting people to migrate away from states that experienced the most temperature increases. However, the results of the analysis did not support this hypothesis. The correlation between the rate of temperature increase and population change was found to be negligible, with no statistically significant relationship observed (correlation coefficient was 0.21). This suggests that there is no clear evidence linking temperature increase to population migration trends within the time frame (2010-2019).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>The key explanatory variable in this study is the temperature difference for each state between 2010 and 2019, measured in degrees Fahrenheit. The dependent variable is the percentage change in population for the same period, calculated as the relative increase or decrease from the 2010 baseline population.</p>
+<p>My research design is before-and-after, because it compares the outcome variable (population change) at two points in time (2010 and 2019) to assess whether a change in the independent variable (temperature difference) is associated with the observed differences in the outcome. I am examining changes over time within states. My independent variable (temperature difference) and dependent variable (population change) are both measured at two distinct time points (2010 and 2019). It is not a cross-sectional design, because the design does not examine data at a single point in time. It is not a randomized experiment, because those require experimental manipulation, like randomly assigning treatment, which does not apply since my study is observational. It is not differences-in-differences, because my design does not define treatment and control groups.</p>
+<p>Results</p>
+<p>The relationship between those variables—temperature difference and percentage change in population—is visualized in the scatter plot below, where each point represents a state. The plot includes a fitted linear regression line, illustrating the general trend. Contrary to my hypothesis, the relationship appears slightly positive, suggesting that states with higher temperature increases tended to experience population growth rather than decline. This result challenges the notion that rising temperatures directly drive population decreases within the continental United States.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<figure>
+<img src="data_scatter_plot.png" alt="Scatter Plot" />
+<figcaption aria-hidden="true">Scatter Plot</figcaption>
+</figure>
+<p>This plot shows the relationship, by state, between the temperature difference (in Fahrenheit) between 2010 and 2019 and the population change (in percentage) from 2010 to 2019. The regression line included estimates of the effect of temperature change on population change. The observable relationship is slightly positive, disproving my thesis that the relationship between population change and temperature difference would be negative. It appears as though most of the states had some amount of population growth from 2010 to 2019, regardless of the temperature change.</p>
+<p>The output for the main regression summarizes the relationship between population percentage change and temperature difference for the continental 48 states. The key components of the output are the coefficients, standard errors, and p-values.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] 0.158307</code></pre>
+<table style="width:46%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><ol type="1">
+<li></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>5.797</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>s.e. = 0.743</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>p = &lt;0.001</td>
+</tr>
+<tr class="even">
+<td>temp_difference</td>
+<td>0.563</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s.e. = 0.392</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>p = 0.158</td>
+</tr>
+<tr class="odd">
+<td>Num.Obs.</td>
+<td>48</td>
+</tr>
+<tr class="even">
+<td>R2</td>
+<td>0.043</td>
+</tr>
+<tr class="odd">
+<td>R2 Adj.</td>
+<td>0.022</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The intercept, which came out to be 5.797, is the estimated average population percentage change when the temperature difference is zero. In this case, a state with no temperature difference between 2010 and 2019 would experience an estimated 5.797% population growth. temp_difference, which came out to be 0.563, is the slope coefficient, representing the estimated change in population percentage per 1°F increase in temperature. For each additional 1°F rise in temperature difference, population growth is predicted to increase by 0.563 percentage points.</p>
+<p>The standard errors, which indicate the uncertainty in the estimates, were 0.743 (for the intercept) and 0.392 (for temp_difference). The standard error of the intercept is small relative to its value, suggesting a precise estimate. The standard error of the temp_difference estimate is relatively large compared to its coefficient, indicating greater uncertainty about the true effect of temperature on population growth.</p>
+<p>The p-value of the intercept, which was less than 0.001, indicates that the intercept is highly statistically significant. This means there is strong evidence that the average population change is not zero when the temperature difference is zero. On the other hand, the p-value of temp_difference came out to be 0.158. This p-value suggests the relationship between temperature difference and population change is not statistically significant at typical significance levels (0.01, 0.05, or 0.1). This means that the observed effect could plausibly be due to random variation rather than a true underlying relationship.</p>
+<p>Other insights from the output include the number of observations, the R-squared value, and the adjusted R-squared value. The number of observations was 48, as that is the number of continental states included in my analysis. The R-squared value, which came out to 0.043, indicates that only 4.3% of the variation in population percentage change is explained by temperature difference. This is a very low value, suggesting the model doesn’t capture much of the variability in the outcome. When adjusted for the number of predictors in the model, the R-squared value was 0.022, reaffirming the model’s minimal explanatory power.</p>
+<p>The effect of temperature difference on population change is positive (0.563), but it is small and statistically insignificant (p = 0.158). There’s insufficient evidence to claim a strong or reliable relationship between these variables. The low R-squared value suggests that other factors, beyond temperature difference, drive changes in population growth (e.g., economic opportunities, cost of living, political lean, etc.).</p>
+<p>Conclusion</p>
+<p>My hypothesis proposed that states experiencing greater increases in annual temperature over time (from 2010 to 2019) would see a decline or have insignificant change in population due to migration out of these states as a result of rising temperatures. I expected that states with more significant temperature increases would experience population loss, while states with little or no increase in temperature would either maintain or grow their population. This hypothesis was based on the assumption that rising annual temperatures would make living conditions less desirable, prompting people to migrate away from states that experienced the most temperature increases. However, the results of the regression analysis did not support this hypothesis. The correlation between the rate of temperature increase and population change was found to be negligible, with no statistically significant relationship observed. This suggests that there is no clear evidence linking temperature increase to population migration trends within the time frame (2010-2019).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
